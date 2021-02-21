@@ -5,7 +5,6 @@ Contains a function to provide access to various parts of the json object.
 For example, ask the user to enter the dictionary key whose meaning he wants to view.
 '''
 
-
 import json
 from typing import List, Dict, Union
 
@@ -28,14 +27,13 @@ def redirect(data):
     Provide access to various parts of the json object. Is used to navigate file from up to down
     '''
 
-    # want_back = input('Do you want to go back? If so, \
-# write "b" as many times as you want to go back.\n\
-    # Otherwise, press Enter')
-
+    # when user access dict (object), allows him to choose what key he want to
+    # look up
     if isinstance(data, dict):
         value_to_redirect = input(f'Specify one of keys: {list(data.keys())}\n').strip()
     # this work with assumption that then all the list will comtain objects
 
+    # list of dicts (objects)
     elif isinstance(data, list) and all([isinstance(elm, dict) for elm in data]):
         value_to_redirect = ''
         # here we assume that json lists contains objects that are the same
@@ -45,20 +43,27 @@ you\nere is an example of what the object contains: {list(data[0].keys())}'
         print(object_keys)
         value_to_identify = input().strip()
         print(f'We get this category: {value_to_identify}. Please wait.\n')
-        print([obj[value_to_identify] for obj in data])
+        list_of_elms = [obj[value_to_identify] for obj in data]
+        print(list_of_elms)
         value = input().strip('\' ')
-        for obj in data:
-            if obj[value_to_identify] == value:
-                value_to_redirect = data.index(obj)
-                break
+        if len(value) == 1:
+            for obj in data:
+                if obj[value_to_identify] == list_of_elms[int(value)]:
+                    value_to_redirect = data.index(obj)
+                    break
+        else:
+            for obj in data:
+                if obj[value_to_identify] == value:
+                    value_to_redirect = data.index(obj)
+                    break
         if not isinstance(value_to_redirect, int):
             print('You specified wrong value')
             value_to_redirect = False
 
-    elif isinstance(data, list) and all([not isinstance(elm, dict) for elm in data]):
+    # just list
+    elif isinstance(data, list) and not all([isinstance(elm, dict) for elm in data]):
         print(f'Here goes your list of values: {data}\n')
         value_to_redirect = False
-    # TODO: list with dicts and not dicts
 
     else:
         print(f'Here is your data: {data}\n')
@@ -71,13 +76,9 @@ you\nere is an example of what the object contains: {list(data[0].keys())}'
 if __name__ == "__main__":
     json_file = get_file_name()
     if json_file:
-        json_navigator = json_file
-        # path = []
         while True:
-            redirect_value = redirect(data)
+            redirect_value = redirect(json_file)
             # path.append(redirect_value)
             if isinstance(redirect_value, bool):
                 break
-            json_navigator = json_navigator[redirect_value]
-
-        # print(path)
+            json_file = json_file[redirect_value]
