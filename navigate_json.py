@@ -29,7 +29,11 @@ def redirect(data: Union[Dict, List]):
 
     # when user access dict (object), allows him to choose what key he want to look up
     if isinstance(data, dict):
-        value_to_redirect = input(f'Specify one of keys: {list(data.keys())}\n').strip()
+        value_to_redirect = input(f'Specify one of keys: {list(data.keys())}\n\
+Or if you want to show entire dict, print "f"\n').strip()
+        if value_to_redirect in 'f':
+            print(data)
+            return 'e'
         if value_to_redirect not in 'bbbbhe' and value_to_redirect not in list(data.keys()):
             return False
 

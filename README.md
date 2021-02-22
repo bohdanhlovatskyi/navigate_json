@@ -40,6 +40,16 @@ If you want to go back, print: "b" for num of times, you want to go back, otherw
 e
 ```
 
+If the user wants, he can diaplay entire dictionary like this:
+```
+Specify one of keys: ['id', 'id_str', ...,  'blocked_by', 'translator_type']
+
+Or if you want to show entire dict, print "f"
+f
+
+{'id': 1583824903, 'id_str': '1583824903', 'name': 'Ron Berger', ... , 'translator_type': 'none'}
+```
+
 The user also can move back for as much as he wants steps, inputing "b" (for n times, where n - numbers of steps)
 ```
 Specify one of keys: ['users', 'next_cursor', 'next_cursor_str', 'previous_cursor', 'previous_cursor_str', 'total_count']
