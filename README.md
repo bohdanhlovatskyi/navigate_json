@@ -14,12 +14,14 @@ users
 ```
 On this step it gets list of objects (dictionaries), therefore asks the user what specific info from these dictionaries to display in order for him to know what exactly dict he wants to discover completely
 ```
-On this step there is a list of objects in yout json file, please specify what category you need to identify what onbject is interesting for you
-ere is an example of what the object contains: ['id', 'id_str', 'name', 'screen_name', 'location', 'description', 'url', 'entities', 'protected', 'followers_count', 'friends_count', 'listed_count', 'created_at', 'favourites_count', 'utc_offset', 'time_zone', 'geo_enabled', 'verified', 'statuses_count', 'lang', 'status', 'contributors_enabled', 'is_translator', 'is_translation_enabled', 'profile_background_color', 'profile_background_image_url', 'profile_background_image_url_https', 'profile_background_tile', 'profile_image_url', 'profile_image_url_https', 'profile_banner_url', 'profile_link_color', 'profile_sidebar_border_color', 'profile_sidebar_fill_color', 'profile_text_color', 'profile_use_background_image', 'has_extended_profile', 'default_profile', 'default_profile_image', 'following', 'live_following', 'follow_request_sent', 'notifications', 'muting', 'blocking', 'blocked_by', 'translator_type']
-name
-We get this category: name. Please wait.
+There is a list of objects, each object contains such keys, specify what key will help you to identify the object you want: 
+['id', 'id_str', 'name', 'screen_name', 'location', 'description', 'url', 'entities', 'protected', 'followers_count', 'friends_count', 'listed_count', 'created_at', 'favourites_count', 'utc_offset', 'time_zone', 'geo_enabled', 'verified', 'statuses_count', 'lang', 'status', 'contributors_enabled', 'is_translator', 'is_translation_enabled', 'profile_background_color', 'profile_background_image_url', 'profile_background_image_url_https', 'profile_background_tile', 'profile_image_url', 'profile_image_url_https', 'profile_banner_url', 'profile_link_color', 'profile_sidebar_border_color', 'profile_sidebar_fill_color', 'profile_text_color', 'profile_use_background_image', 'has_extended_profile', 'default_profile', 'default_profile_image', 'following', 'live_following', 'follow_request_sent', 'notifications', 'muting', 'blocking', 'blocked_by', 'translator_type']
 
-['Ron Berger', 'Hayley Lewis 💙', 'JEN KIRKMAN 👩🏻\u200d💻', 'Gayle King', 'Emmy Rossum', 'Penguin Random House 🐧🏠📚', 'Rahaf Harfoush', 'Peter T. Coleman', 'Vice President Kamala Harris', 'Becky Sauerbrunn']
+
+Choose a key, which will help you to specify, whar object you want.
+name
+
+Choose object from ['Ron Berger', 'Hayley Lewis 💙', 'JEN KIRKMAN 👩🏻\u200d💻', 'Gayle King', 'Emmy Rossum', 'Penguin Random House 🐧🏠📚', 'Rahaf Harfoush', 'Peter T. Coleman', 'Vice President Kamala Harris', 'Becky Sauerbrunn']
 ```
 
 Now user can choose what user he wants to find out about
@@ -33,6 +35,33 @@ screen_name
 Here is your data: RonBergerEL
 
 You reached the bottom of your file
+
+If you want to go back, print: "b" for num of times, you want to go back, otherwise: "e", or press Enter
+e
 ```
 
-As far as I'm convinced there is no need in making going backwards available, because json files are not often very 'deep', so it would not be really uncomfortable to start again
+The user also can move back for as much as he wants steps, inputing "b" (for n times, where n - numbers of steps)
+```
+Specify one of keys: ['users', 'next_cursor', 'next_cursor_str', 'previous_cursor', 'previous_cursor_str', 'total_count']
+users
+There is a list of objects, each object contains such keys, specify what key will help you to identify the object you want: 
+['id', 'id_str', 'name', ... , 'translator_type']
+
+Choose a key, which will help you to specify, whar object you want.
+b
+
+Specify one of keys: ['users', 'next_cursor', 'next_cursor_str', 'previous_cursor', 'previous_cursor_str', 'total_count']
+```
+
+The user always can return to the first meaningful step, printing 'h'
+```
+Choose a key, which will help you to specify, whar object you want.
+name
+Choose object from ['Ron Berger', 'Hayley Lewis 💙', 'JEN KIRKMAN 👩🏻\u200d💻', 'Gayle King', 'Emmy Rossum', 'Penguin Random House 🐧🏠📚', 'Rahaf Harfoush', 'Peter T. Coleman', 'Vice President Kamala Harris', 'Becky Sauerbrunn']
+Ron Berger
+Specify one of keys: ['id', 'id_str', 'name', ... , 'translator_type']
+
+bb
+
+Specify one of keys: ['users', 'next_cursor', 'next_cursor_str', 'previous_cursor', 'previous_cursor_str', 'total_count']
+```
